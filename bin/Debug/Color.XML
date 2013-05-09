@@ -1,0 +1,95 @@
+﻿<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Color</name>
+    </assembly>
+    <members>
+        <member name="T:Graphic.ColorMap.Colormap">
+            <summary>
+            2次元グラフ用のカラーマップを生成します。
+            </summary>
+        </member>
+        <member name="F:Graphic.ColorMap.Colormap.StartH">
+            <summary>
+            HSV色環の開始H値[deg]
+            </summary>
+        </member>
+        <member name="F:Graphic.ColorMap.Colormap.EndH">
+            <summary>
+            HSV色環の終了H値[deg]
+            </summary>
+        </member>
+        <member name="F:Graphic.ColorMap.Colormap.S">
+            <summary>
+            HSV色環のS値
+            </summary>
+        </member>
+        <member name="F:Graphic.ColorMap.Colormap.V">
+            <summary>
+            HSV色環のV値
+            </summary>
+        </member>
+        <member name="F:Graphic.ColorMap.Colormap.Reverse">
+            <summary>
+            逆順描画
+            </summary>
+        </member>
+        <member name="M:Graphic.ColorMap.Colormap.#ctor">
+            <summary>
+            青から始まり赤で終わる、標準的なカラーマップを生成
+            </summary>
+        </member>
+        <member name="M:Graphic.ColorMap.Colormap.#ctor(System.Double,System.Double)">
+            <summary>
+            開始色と終了色を指定したカラーマップを生成
+            </summary>
+            <param name="start">0%となる色の色相(degree 0～360)</param>
+            <param name="end">100%となる色の色相(degree 0～360)</param>
+        </member>
+        <member name="M:Graphic.ColorMap.Colormap.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            開始色と終了色、明度と彩度を指定したカラーマップを生成
+            </summary>
+            <param name="start">0%となる色の色相(degree 0～360)</param>
+            <param name="end">100%となる色の色相(degree 0～360)</param>
+            <param name="saturation">彩度(0～100%)</param>
+            <param name="brightness">明度(0～100%)</param>
+        </member>
+        <member name="M:Graphic.ColorMap.Colormap.GenerateColorMap(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            カラーマップ用の各種変数の初期化
+            （コンストラクタから呼び出される）
+            </summary>
+            <param name="start">0%となる色の色相(degree 0～360)</param>
+            <param name="end">100%となる色の色相(degree 0～360)</param>
+            <param name="saturation">彩度(0～100%)</param>
+            <param name="brightness">明度(0～100%)</param>
+        </member>
+        <member name="M:Graphic.ColorMap.Colormap.getColor(System.Double,System.Double,System.Double)">
+            <summary>
+            与えられた値の色を返す
+            </summary>
+            <param name="value">値（最小値≦値≦最大値）</param>
+            <param name="min">最小値</param>
+            <param name="max">最大値</param>
+            <returns>Colorオブジェクト</returns>
+        </member>
+        <member name="M:Graphic.ColorMap.Colormap.getColor(System.Double)">
+            <summary>
+            与えられた値の色を返す
+            </summary>
+            <param name="value">値（0.0～1.0）</param>
+            <returns>Colorオブジェクト</returns>
+        </member>
+        <member name="M:Graphic.ColorMap.Colormap.convertHSVtoRGB(System.Double,System.Double,System.Double)">
+            <summary>
+            HSV色空間情報からColorオブジェクトへ変換します。
+            参考： http://ja.wikipedia.org/wiki/HSV色空間
+            </summary>
+            <param name="_h">色相(0～360)</param>
+            <param name="_s">彩度(0～100)</param>
+            <param name="_v">明度(0～100)</param>
+            <returns>HSV色空間データから生成されたColorオブジェクト</returns>
+        </member>
+    </members>
+</doc>

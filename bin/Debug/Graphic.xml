@@ -4,20 +4,71 @@
         <name>Graphic</name>
     </assembly>
     <members>
-        <member name="T:Graphic.Properties.Resources">
+        <member name="T:Graphic.BmpGenerator">
             <summary>
-              ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+            Colorクラスオブジェクトの2元配列から画像を生成するクラス
             </summary>
         </member>
-        <member name="P:Graphic.Properties.Resources.ResourceManager">
+        <member name="F:Graphic.BmpGenerator.bitmap">
             <summary>
-              このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+            ビットマップデータ
             </summary>
         </member>
-        <member name="P:Graphic.Properties.Resources.Culture">
+        <member name="M:Graphic.BmpGenerator.Dispose">
             <summary>
-              厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
-              現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+            破棄メソッド
+            </summary>
+        </member>
+        <member name="M:Graphic.BmpGenerator.PixelAt(System.Drawing.Imaging.BitmapData,System.Int32,System.Int32)">
+            <summary>
+            画像情報とアドレスからポインタを計算して返す
+            </summary>
+            <param name="bmpData">画像情報</param>
+            <param name="x">xアドレス</param>
+            <param name="y">yアドレス</param>
+            <returns>ポインタ</returns>
+        </member>
+        <member name="M:Graphic.BmpGenerator.MakeBmp(System.Drawing.Color[0:,0:])">
+            <summary>
+            配列をセットすることで画像を生成する
+            <para>生成された画像はBitmapプロパティにより取得可能です。</para>
+            </summary>
+            <param name="bmp">画像化したい2次元配列</param>
+        </member>
+        <member name="M:Graphic.BmpGenerator.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="P:Graphic.BmpGenerator.Bitmap">
+            <summary>
+            生成したビットマップデータ
+            <para>画像オブジェクトのインスタンスを新規に作成して渡します。</para>
+            </summary>
+        </member>
+        <member name="P:Graphic.BmpGenerator.PixelSize">
+            <summary>
+            画像サイズ
+            </summary>
+        </member>
+        <member name="T:Graphic.BmpGenerator.PixelData">
+            <summary>
+            画素値を格納する構造体
+            </summary>
+        </member>
+        <member name="F:Graphic.BmpGenerator.PixelData.blue">
+            <summary>
+            青
+            </summary>
+        </member>
+        <member name="F:Graphic.BmpGenerator.PixelData.green">
+            <summary>
+            緑
+            </summary>
+        </member>
+        <member name="F:Graphic.BmpGenerator.PixelData.red">
+            <summary>
+            赤
             </summary>
         </member>
         <member name="T:Graphic.ColorClass.Colormap">
@@ -112,23 +163,6 @@
             グラフフォームクラスです。
             基本、散布図を表示することを想定しています。
             2011/7/24 やはり突貫で作ったので洗練されていません。
-            </summary>
-        </member>
-        <member name="F:Graphic.Graph.FrmXYGraph.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:Graphic.Graph.FrmXYGraph.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:Graphic.Graph.FrmXYGraph.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
             </summary>
         </member>
         <member name="F:Graphic.Graph.FrmXYGraph._corner">
@@ -237,6 +271,23 @@
             グラフを表示する本体の関数
             </summary>
         </member>
+        <member name="F:Graphic.Graph.FrmXYGraph.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Graphic.Graph.FrmXYGraph.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Graphic.Graph.FrmXYGraph.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="P:Graphic.Graph.FrmXYGraph.CreateParams">
             <summary>
             「閉じるボタン」を無効化する
@@ -307,71 +358,20 @@
             別スレッドからアクセスする際に使用するデリゲート
             </summary>
         </member>
-        <member name="T:Graphic.BmpGenerator">
+        <member name="T:Graphic.Properties.Resources">
             <summary>
-            Colorクラスオブジェクトの2元配列から画像を生成するクラス
+              ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
             </summary>
         </member>
-        <member name="F:Graphic.BmpGenerator.bitmap">
+        <member name="P:Graphic.Properties.Resources.ResourceManager">
             <summary>
-            ビットマップデータ
+              このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
             </summary>
         </member>
-        <member name="M:Graphic.BmpGenerator.Dispose">
+        <member name="P:Graphic.Properties.Resources.Culture">
             <summary>
-            破棄メソッド
-            </summary>
-        </member>
-        <member name="M:Graphic.BmpGenerator.PixelAt(System.Drawing.Imaging.BitmapData,System.Int32,System.Int32)">
-            <summary>
-            画像情報とアドレスからポインタを計算して返す
-            </summary>
-            <param name="bmpData">画像情報</param>
-            <param name="x">xアドレス</param>
-            <param name="y">yアドレス</param>
-            <returns>ポインタ</returns>
-        </member>
-        <member name="M:Graphic.BmpGenerator.MakeBmp(System.Drawing.Color[0:,0:])">
-            <summary>
-            配列をセットすることで画像を生成する
-            <para>生成された画像はBitmapプロパティにより取得可能です。</para>
-            </summary>
-            <param name="bmp">画像化したい2次元配列</param>
-        </member>
-        <member name="M:Graphic.BmpGenerator.#ctor">
-            <summary>
-            コンストラクタ
-            </summary>
-        </member>
-        <member name="P:Graphic.BmpGenerator.Bitmap">
-            <summary>
-            生成したビットマップデータ
-            <para>画像オブジェクトのインスタンスを新規に作成して渡します。</para>
-            </summary>
-        </member>
-        <member name="P:Graphic.BmpGenerator.PixelSize">
-            <summary>
-            画像サイズ
-            </summary>
-        </member>
-        <member name="T:Graphic.BmpGenerator.PixelData">
-            <summary>
-            画素値を格納する構造体
-            </summary>
-        </member>
-        <member name="F:Graphic.BmpGenerator.PixelData.blue">
-            <summary>
-            青
-            </summary>
-        </member>
-        <member name="F:Graphic.BmpGenerator.PixelData.green">
-            <summary>
-            緑
-            </summary>
-        </member>
-        <member name="F:Graphic.BmpGenerator.PixelData.red">
-            <summary>
-            赤
+              厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+              現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
             </summary>
         </member>
     </members>
